@@ -3,14 +3,18 @@
     "start": "npm run webpack & npm run pug & npm run server",
     "webpack": "webpack -w",
     "pug": "pug ./src/pug -wo ./public",
-    "server": "browser-sync start --server ./public"
+    "server": "browser-sync start --server ./public",
+    "deploy": "gh-pages -b gh-pages -d public"
   },
   "author": "kzhrk",
   "devDependencies": {
+    "animejs": "^2.2.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
     "browser-sync": "^2.23.5",
+    "classlist.js": "^1.1.20150312",
+    "gh-pages": "^1.1.0",
     "hammerjs": "^2.0.8",
     "pixi-filters": "^2.5.1",
     "pixi.js": "^4.7.0",
