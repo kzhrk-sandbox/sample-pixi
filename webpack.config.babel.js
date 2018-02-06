@@ -1,6 +1,8 @@
 import webpack from 'webpack';
 import path from 'path';
 
+const DEBUG = process.argv.includes('-d');
+
 export default {
 	entry: {
 		main: './src/webpack/js/main.js',
@@ -27,11 +29,18 @@ export default {
 		]
 	},
 
-	plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-    	name: 'vendor',
-			minChunks: Infinity
-    }),
-		new webpack.optimize.UglifyJsPlugin()
-	]
+	plugins: (()=>{
+    const result = [];
+
+    result.push(new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: Infinity
+    }));
+
+    if (!DEBUG) {
+      result.push(new webpack.optimize.UglifyJsPlugin());
+    }
+
+    return result;
+  })()
 }

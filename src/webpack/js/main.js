@@ -1,7 +1,9 @@
 import Generator from './modules/Generator';
-import Stamps from './modules/Stamps';
-import Gesture from './modules/Gesture';
-import Filter from './modules/Filter';
+import Stamps from './modules/Generator/Stamps';
+import Gesture from './modules/Generator/Gesture';
+import Filter from './modules/Generator/Filter';
+import Text from './modules/Generator/Text';
+import Photo from './modules/Generator/Photo';
 
 import * as config from './config';
 
@@ -11,6 +13,11 @@ window.addEventListener('load', ()=>{
   const removeFilterAlpha = document.getElementById('js-filter-alpha-remove');
   const removeFilterBlur = document.getElementById('js-filter-blur-remove');
 
+  const inputText = document.getElementById('js-text');
+  const textSubmit = document.getElementById('js-text-submit');
+  const fontFamilies = document.querySelectorAll('.js-text-font');
+  const textColors = document.querySelectorAll('.js-text-color');
+
   const addButton = document.getElementById('js-add-image');
   const downloadButton = document.getElementById('js-download');
 
@@ -18,10 +25,13 @@ window.addEventListener('load', ()=>{
   const stamps = new Stamps(generator.app);
   const gesture = new Gesture(generator.app, stamps);
   const filter = new Filter(generator.app);
+  const text = new Text(generator.app);
+  const photo = new Photo(generator.app);
 
   generator.init();
 
   gesture.addEvent();
+  photo.addEvent();
 
   addFilterAlpha.addEventListener('click', ()=>{
     filter.add(config.filter.alpha);
@@ -50,6 +60,23 @@ window.addEventListener('load', ()=>{
 
     document.body.appendChild(tmpImg)
   }, false);
+
+  textSubmit.addEventListener('click', ()=>{
+    text.setText(inputText.value);
+    text.add();
+  }, false);
+
+  [].forEach.call(fontFamilies, (fontFamily)=>{
+    fontFamily.addEventListener('click', ()=>{
+      text.setFontFamily(fontFamily.dataset.font);
+    }, false);
+  });
+
+  [].forEach.call(textColors, (textColor)=>{
+    textColor.addEventListener('click', ()=>{
+      text.setFill(textColor.dataset.color);
+    }, false);
+  });
 
 }, false);
 

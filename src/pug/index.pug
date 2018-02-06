@@ -11,3 +11,19 @@ html
 			button#js-filter-alpha-remove Remove Alpha
 			button#js-add-image Image
 			button#js-download Download
+			input#js-file(type="file")
+			dl
+				dt テキスト
+				dd
+					input#js-text(type="text" placeholder="全角16文字まで")
+					button#js-text-submit Add
+				dd
+					button.js-text-font(data-font="Hiragino Sans,ヒラギノ角ゴシック,Hiragino Kaku Gothic ProN,ヒラギノ角ゴ ProN W3") ヒラギノゴシック
+					button.js-text-font(data-font="ヒラギノ明朝 ProN W6,HiraMinProN-W6") ヒラギノ明朝
+					button.js-text-font(data-font="Arial") Arial
+				dd
+					button.js-text-color(data-color="#000") black
+					button.js-text-color(data-color="#fff") white
+					button.js-text-color(data-color="#ccc") gray
+
+//'Open Sans','Hiragino Sans','ヒラギノ角ゴシック','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','Helvetica Neue',Helvetica,Arial,sans-serif

@@ -1,4 +1,3 @@
-import 'classlist.js';
 import anime from 'animejs';
 import * as util from '../helper/util';
 
