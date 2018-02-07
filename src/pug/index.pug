@@ -5,12 +5,33 @@ html
 		script(src="js/main.bundle.js")
 	body
 		div
-			button#js-filter-blur-add Add Blur
-			button#js-filter-alpha-add Add Alpha
-			button#js-filter-blur-remove Remove Blur
-			button#js-filter-alpha-remove Remove Alpha
+			button.js-filter-add(data-filter="blur") Add Blur
+			button.js-filter-add(data-filter="alpha") Add Alpha
+			button.js-filter-add(data-filter="sepia") Add Sepia
+			button.js-filter-add(data-filter="dot") Add Dot
+			button.js-filter-add(data-filter="mosaic") Add Mosaic
+			button.js-filter-add(data-filter="monoqlo") Add Monoqlo
+			button.js-filter-add(data-filter="emboss") Add Emboss
+			button.js-filter-add(data-filter="convolution") Add Convolution
+			button.js-filter-add(data-filter="zoom_blur") Add Zoom Blur
+			button.js-filter-add(data-filter="yellow") Add Yellow
+			button.js-filter-add(data-filter="noise") Add Noise
+			hr
+			button.js-filter-remove(data-filter="blur") Remove Blur
+			button.js-filter-remove(data-filter="alpha") Remove Alpha
+			button.js-filter-remove(data-filter="sepia") Remove Sepia
+			button.js-filter-remove(data-filter="dot") Remove Dot
+			button.js-filter-remove(data-filter="mosaic") Remove Mosaic
+			button.js-filter-remove(data-filter="monoqlo") Remove Monoqlo
+			button.js-filter-remove(data-filter="emboss") Remove Emboss
+			button.js-filter-remove(data-filter="convolution") Remove Convolution
+			button.js-filter-remove(data-filter="zoom_blur") Remove Zoom Blur
+			button.js-filter-remove(data-filter="yellow") Remove Yellow
+			button.js-filter-remove(data-filter="noise") Remove Noise
+			hr
 			button#js-add-image Image
 			button#js-download Download
+			hr
 			input#js-file(type="file")
 			dl
 				dt テキスト
@@ -25,5 +46,3 @@ html
 					button.js-text-color(data-color="#000") black
 					button.js-text-color(data-color="#fff") white
 					button.js-text-color(data-color="#ccc") gray
-
-//'Open Sans','Hiragino Sans','ヒラギノ角ゴシック','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','Helvetica Neue',Helvetica,Arial,sans-serif

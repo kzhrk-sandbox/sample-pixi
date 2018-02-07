@@ -10,8 +10,12 @@ import * as config from './config';
 window.addEventListener('load', ()=>{
   const addFilterAlpha = document.getElementById('js-filter-alpha-add');
   const addFilterBlur = document.getElementById('js-filter-blur-add');
+  const addFilterMultiColor = document.getElementById('js-filter-multiColorReplaceFilter');
   const removeFilterAlpha = document.getElementById('js-filter-alpha-remove');
   const removeFilterBlur = document.getElementById('js-filter-blur-remove');
+
+  const addFilterButtons = document.querySelectorAll('.js-filter-add');
+  const removeFilterButtons = document.querySelectorAll('.js-filter-remove');
 
   const inputText = document.getElementById('js-text');
   const textSubmit = document.getElementById('js-text-submit');
@@ -33,21 +37,37 @@ window.addEventListener('load', ()=>{
   gesture.addEvent();
   photo.addEvent();
 
-  addFilterAlpha.addEventListener('click', ()=>{
-    filter.add(config.filter.alpha);
-  }, false);
+  [].forEach.call(addFilterButtons, (addFilterButton)=>{
+    addFilterButton.addEventListener('click', (e)=>{
+      filter.add(e.currentTarget.dataset.filter);
+    }, false);
+  });
 
-  addFilterBlur.addEventListener('click', ()=>{
-    filter.add(config.filter.blur);
-  }, false);
+  [].forEach.call(removeFilterButtons, (removeFilterButton)=>{
+    removeFilterButton.addEventListener('click', (e)=>{
+      filter.remove(e.currentTarget.dataset.filter);
+    }, false);
+  });
 
-  removeFilterAlpha.addEventListener('click', ()=>{
-    filter.remove(config.filter.alpha);
-  }, false);
-
-  removeFilterBlur.addEventListener('click', ()=>{
-    filter.remove(config.filter.blur);
-  }, false);
+  // addFilterMultiColor.addEventListener('click', ()=>{
+  //   filter.add(config.filter.multiColorReplaceFilter);
+  // }, false);
+  //
+  // addFilterAlpha.addEventListener('click', ()=>{
+  //   filter.add(config.filter.alpha);
+  // }, false);
+  //
+  // addFilterBlur.addEventListener('click', ()=>{
+  //   filter.add(config.filter.blur);
+  // }, false);
+  //
+  // removeFilterAlpha.addEventListener('click', ()=>{
+  //   filter.remove(config.filter.alpha);
+  // }, false);
+  //
+  // removeFilterBlur.addEventListener('click', ()=>{
+  //   filter.remove(config.filter.blur);
+  // }, false);
 
   addButton.addEventListener('click', ()=>{
     stamps.add('images/sample.jpeg')

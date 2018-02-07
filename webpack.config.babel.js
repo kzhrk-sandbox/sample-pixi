@@ -6,7 +6,7 @@ const DEBUG = process.argv.includes('-d');
 export default {
 	entry: {
 		main: './src/webpack/js/main.js',
-		vendor: ['pixi.js', 'hammerjs']
+		vendor: ['pixi.js', 'pixi-filters', 'hammerjs']
 	},
 
 	output: {

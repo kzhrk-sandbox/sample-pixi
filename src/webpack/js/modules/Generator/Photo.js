@@ -47,7 +47,7 @@ export default class Photo {
    */
   onLoad(e) {
     this.container.addChild(new PIXI.Sprite(PIXI.Texture.fromImage(e.target.result)));
-    this.container.addChild(this.guide);
+    // this.container.addChild(this.guide);
     this.app.stage.addChild(this.container);
   }
   /**
